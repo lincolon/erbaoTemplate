@@ -1,64 +1,67 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        erbao-nuxt-template
-      </h1>
-      <h2 class="subtitle">
-        erbao-nuxt-project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+  <div class="page-container">
+    <top-header></top-header>
+    <navbar></navbar>
+    <section class="main-content">
+      <nuxt-child/>
+    </section>
+  </div>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import nav from '../components/nav'
+import topHeader from '../components/topHeader'
 
 export default {
   components: {
-    AppLogo
+    navbar: nav,
+    topHeader: topHeader
+  },
+  asyncData({route, store}){
+    if(process.server){
+      store.state.currentPath = route.name
+    }
   }
-}
+};
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang="less">
+@HEAD_HEIGHT: 70px;
+  .page-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 1260px;
+    overflow-x: scroll;
+    >header{
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: @HEAD_HEIGHT;
+      background-color: #fff;
+      border-bottom: 1px solid #dcdcdc;
+      z-index: 100;
+    }
+    .side-bar{
+      position: fixed;
+      top: @HEAD_HEIGHT;
+      left: 0;
+      width: 240px;
+      height: ~'calc(100% - 70px)';
+      background-color: #ffffff;
+      border-right: 1px solid #dcdcdc;
+      overflow-y: auto;
+      z-index: 99;
+    }
+    .main-content{
+      position: relative;
+      z-index: 100;
+      height: ~'calc(100% - 70px)';
+      margin-top: @HEAD_HEIGHT;
+      margin-left: 240px;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  }
 </style>
