@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "repository": {
     "type": "git",
-    "url": "git:git@github.com:lincolon/erbaoTemplate.git"
+    "url":  "git://github.com/lincolon/erbaoTemplate.git"
   },
   "scripts": {
     "dev": "wepy build --watch",
