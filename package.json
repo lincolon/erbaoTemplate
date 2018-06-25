@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "erbao-nuxt-project",
   "author": "lincolon <514278952@qq.com>",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.coding.net/lincolon_code/erbaoProjectTemplate.git"
+  },
   "scripts": {
     "dev": "node server.js",
     "build": "nuxt build",
