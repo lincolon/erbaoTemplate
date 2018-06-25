@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "description": "erbao-template",
   "main": "dist/app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.coding.net/lincolon_code/erbaoProjectTemplate.git"
+  },
   "scripts": {
     "dev": "wepy build --watch",
     "build": "cross-env NODE_ENV=production wepy build --no-cache",
