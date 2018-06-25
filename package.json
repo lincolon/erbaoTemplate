@@ -2,10 +2,9 @@
   "name": "erbao-template",
   "version": "0.0.2",
   "description": "erbao-template",
-  "main": "dist/app.js",
   "repository": {
     "type": "git",
-    "url":  "git://github.com/lincolon/erbaoTemplate.git"
+    "url":  "git+https://github.com/lincolon/erbaoTemplate.git"
   },
   "scripts": {
     "dev": "wepy build --watch",
