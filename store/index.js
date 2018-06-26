@@ -1,3 +1,5 @@
+import request from '../lib/request';
+
 export const state = () => ({
   authInfo: {user_id: '12'},
   currentPath: '1-1'
