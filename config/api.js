@@ -1,10 +1,10 @@
 let isProd = process.env.NODE_ENV === 'production';
 
 let baseApi = isProd 
-              ? 'https://cp-api.buyer.2bao.org/' : 'https://test.cp-api.buyer.2bao.org/';
+              ? 'https://自定义/' : 'https://自定义/';
 
 let api = {
-  'LOGIN': 'login'
+  'key': 'value'
 }
 
 let concatApi = function (apis, baseKey) {
@@ -21,6 +21,6 @@ let mergeApi = function(){
 
 let apis = concatApi(api, baseApi);
 
-apis['PICDOMAIN'] = 'https://file-cdn.2bao.org';
+apis['PICDOMAIN'] = '';
 
 module.exports = apis;
